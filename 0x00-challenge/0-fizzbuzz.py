@@ -11,8 +11,15 @@ def fizzbuzz(n):
     - For multiples of three print "Fizz" instead of the number and for
       multiples of five print "Buzz".
     - For numbers which are multiples of both three and five print "FizzBuzz".
+
+    Args:
+        n (int): The upper limit of the range.
+
+    Returns:
+        None
     """
-    if n < 1:
+    if not isinstance(n, int) or n < 1:
+        print("Invalid input: n must be a positive integer.")
         return
 
     tmp_result = []
@@ -29,11 +36,11 @@ def fizzbuzz(n):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) <= 1:
-        print("Missing number")
+    if len(sys.argv) != 2:
         print("Usage: ./0-fizzbuzz.py <number>")
         print("Example: ./0-fizzbuzz.py 89")
         sys.exit(1)
 
-    number = int(sys.argv[1])
-    fizzbuzz(number)
+    number = sys.argv[1]
+    fizzbuzz(int(number))
+
